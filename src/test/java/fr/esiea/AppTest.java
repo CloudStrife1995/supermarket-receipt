@@ -9,9 +9,9 @@ import static org.assertj.core.api.Assertions.*;
 public class AppTest 
 {
     @Test
-    public void firstAssertTest()
+    public void App_test()
     {
-        assertThat(true).isTrue();
+        assertThat("Hello World!").isEqualTo("Hello World!");
     }
 
 }
