@@ -14,23 +14,23 @@ public class ReceiptItem {
         this.price = price;
         this.totalPrice = totalPrice;
     }
-
+    //
     public double getPrice() {
         return this.price;
     }
-
+    //
     public Product getProduct() {
         return product;
     }
-
+    //
     public double getQuantity() {
         return quantity;
     }
-
+    //
     public double getTotalPrice() {
         return totalPrice;
     }
-
+    //
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -41,7 +41,7 @@ public class ReceiptItem {
                 Double.compare(that.quantity, quantity) == 0 &&
                 Objects.equals(product, that.product);
     }
-
+    //
     @Override
     public int hashCode() {
 
