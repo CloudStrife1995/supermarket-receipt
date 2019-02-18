@@ -97,8 +97,13 @@ public void twoForAmount_Test()
 
         //then the cashier announce the amount to pay to the cashier
         assertThat(RealCartPrice).isEqualTo(SuposedCartPrice).as("Two article buy for the same amount discount of 25% "); 
-    }
 
+        // Testing the medthod getDecription of the class Discount
+        assertThat(discount_on_pack_of_water.getDescription().equals("Discount offer on pack of water")).isEqualTo(true);
+
+        // Testing the method getProduct on the class Discount
+        assertThat(discount_on_pack_of_water.getProduct().equals(pack_of_water)).isEqualTo(true);
+    }
 
 
 //------------ Five for amount ---------------//
