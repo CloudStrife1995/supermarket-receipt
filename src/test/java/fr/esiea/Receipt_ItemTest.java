@@ -29,8 +29,8 @@ public class Receipt_ItemTest
         ReceiptItem receiptItem_mugs = new ReceiptItem(mugs, 4, 5, 20);   
         ReceiptItem receiptItem_sugar = new ReceiptItem(sugar,2.5, 2, 5);   
         ReceiptItem receiptItem_teaBox1 = new ReceiptItem(teaBox, 3, 2, 4);     
-        ReceiptItem receiptItem_teaBox2 = new ReceiptItem(teaBox, 3, 2, 4);
-        ReceiptItem receiptItem_coffeeBox = new ReceiptItem(coffeeBox, 2, 3, 6);
+        ReceiptItem receiptItem_teaBox2 = new ReceiptItem(teaBox, 7, 2, 14);
+        ReceiptItem receiptItem_coffeeBox = new ReceiptItem(coffeeBox, 2, 4, 8);
                
         //then the test on methods begin
         
@@ -39,7 +39,7 @@ public class Receipt_ItemTest
         assertThat(mugs.equals(receiptItem_mugs)).isNotEqualTo(true); 
 
         // Check the methods equals
-        assertThat(receiptItem_teaBox1.equals(receiptItem_teaBox2)).isEqualTo(true);
+        assertThat(receiptItem_teaBox1.equals(receiptItem_teaBox2)).isEqualTo(false);
         assertThat(receiptItem_teaBox1.equals(receiptItem_coffeeBox)).isNotEqualTo(true);
 
         // check if the  receipt of the product is not null
@@ -50,13 +50,13 @@ public class Receipt_ItemTest
          assertThat(receiptItem_mugs.getPrice()).isEqualTo(5);
 
         // test on the method  getProduct
-         assertThat(receiptItem_mugs.getProduct()).isEqualTo(mugs);
+         assertThat(receiptItem_sugar.getProduct()).isEqualTo(sugar);
 
          // test on the method  getQuantity
-         assertThat(receiptItem_mugs.getQuantity()).isEqualTo(4);
+         assertThat(receiptItem_teaBox2.getQuantity()).isEqualTo(7);
 
         // test on the method  getTotalPrice
-         assertThat(receiptItem_mugs.getTotalPrice()).isEqualTo(20);
+         assertThat(receiptItem_coffeeBox.getTotalPrice()).isEqualTo(8);
 
                  
     }
