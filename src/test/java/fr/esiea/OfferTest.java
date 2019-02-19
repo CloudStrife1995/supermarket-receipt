@@ -13,7 +13,7 @@ public class OfferTest
          Product Umbrella= new Product("Umbrella", ProductUnit.Each);
          Offer Umbrella_offer = new Offer(SpecialOfferType.ThreeForTwo, Umbrella,0 );
          
-         // test of the methodgetProduct
+         // test of the method getProduct
          assertThat(Umbrella_offer.getProduct()).isEqualTo(Umbrella);
 
     }
