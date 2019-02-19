@@ -31,7 +31,7 @@ public class ReceiptItem {
         return totalPrice;
     }
     //
-    @Override
+    /*@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -47,6 +47,6 @@ public class ReceiptItem {
 
         return Objects.hash(product, price, totalPrice, quantity);
     }
-
+    */
 
 }
