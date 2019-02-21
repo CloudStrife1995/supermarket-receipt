@@ -22,4 +22,4 @@ public class ShoppingCartTest
          assertThat(items_into_cart.containsKey(candy_bag)).isEqualTo(true);
 
     }
-}
+} 
