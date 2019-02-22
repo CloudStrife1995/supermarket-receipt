@@ -23,7 +23,7 @@ public class ShoppingCartTest
         double supposed_product_quantity =1.0;
         assertThat(supposed_product_quantity).isEqualTo(productQuantity);
 
-
+    
     }
     
 } 
