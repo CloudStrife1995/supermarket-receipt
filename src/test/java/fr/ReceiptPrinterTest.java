@@ -16,10 +16,10 @@ public class ReceiptPrinterTest
         SupermarketCatalog catalog = new FakeCatalog();
         Teller teller = new Teller(catalog);
 
-        // We create a prodcut " BioWatch " with a special offer of the type "ThreeForTwo".
-        Product BioWatch = new Product("BioWatch", ProductUnit.Each);
-        catalog.addProduct(BioWatch, 5.0);
-        teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, BioWatch,0);
+        // We create a prodcut " bioWatch " with a special offer of the type "ThreeForTwo".
+        Product bioWatch = new Product("bioWatch", ProductUnit.Each);
+        catalog.addProduct(bioWatch, 5.0);
+        teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, bioWatch,0);
     
 
          // We create a prodcut " artefact " with a special offer of the type "TwoForAmount".
@@ -27,15 +27,15 @@ public class ReceiptPrinterTest
         catalog.addProduct(artefact, 10);
         teller.addSpecialOffer(SpecialOfferType.TwoForAmount, artefact,5.00*2);
 
-        // We create a prodcut "necklace" without  special offer. 
-        Product necklace = new Product("necklace", ProductUnit.Each);
-        catalog.addProduct(necklace, 20);
+        // We create a prodcut "celeriac" without  special offer. 
+        Product celeriac = new Product("celeriac", ProductUnit.Kilo);
+        catalog.addProduct(celeriac, 20);
 
        // We put the created product in a cart
         ShoppingCart cart = new ShoppingCart();  
         cart.addItemQuantity(artefact, 2);      
-        cart.addItemQuantity(BioWatch, 3);
-        cart.addItemQuantity(necklace, 1); 
+        cart.addItemQuantity(bioWatch, 3);
+        cart.addItemQuantity(celeriac, 1); 
         
          // we get the printed receipt of the cart
       Receipt receipt_announced = teller.checksOutArticlesFrom(cart);
@@ -53,12 +53,12 @@ public class ReceiptPrinterTest
         "  10.00 * 2\n";
 
         String bioWatchPrice = 
-        "BioWatch                           15.00\n"
+        "bioWatch                           15.00\n"
         +
         "  5.00 * 3\n";
 
-        String necklacePrice = "necklace                           20.00\n";
-        String bioWatchOffertDescrtiption = "3 for 2(BioWatch)                  -5.00\n";
+        String necklacePrice = "celeriac                           20.00\n";
+        String bioWatchOffertDescrtiption = "3 for 2(bioWatch)                  -5.00\n";
         String artefactOffertDescrtiption = "2 for 10.0(artefact)              -10.00\n";
         String totalPrice ="Total:                             40.00";
 
@@ -77,13 +77,13 @@ public class ReceiptPrinterTest
                 +
                 "  10.00 * 2\n"
                 +
-                "BioWatch                           15.00\n"
+                "bioWatch                           15.00\n"
                 +
                 "  5.00 * 3\n"
                 +
-                "necklace                           20.00\n"
+                "celeriac                           20.00\n"
                 +
-                "3 for 2(BioWatch)                  -5.00\n"
+                "3 for 2(bioWatch)                  -5.00\n"
                 +
                 "2 for 10.0(artefact)              -10.00\n"
                 +
