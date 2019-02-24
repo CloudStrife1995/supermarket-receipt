@@ -19,13 +19,13 @@ public class ReceiptPrinterTest
         // We create a prodcut " bioWatch " with a special offer of the type "ThreeForTwo".
         Product bioWatch = new Product("bioWatch", ProductUnit.Each);
         catalog.addProduct(bioWatch, 5.0);
-        teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, bioWatch,0);
+        teller.addSpecialOffer(new ThreeForTwo(), bioWatch,0);
     
 
          // We create a prodcut " artefact " with a special offer of the type "TwoForAmount".
         Product artefact = new Product("artefact", ProductUnit.Each);
         catalog.addProduct(artefact, 10);
-        teller.addSpecialOffer(SpecialOfferType.TwoForAmount, artefact,5.00*2);
+        teller.addSpecialOffer(new TwoForAmount(), artefact,5.00*2);
 
         // We create a prodcut "celeriac" without  special offer. 
         Product celeriac = new Product("celeriac", ProductUnit.Kilo);

@@ -44,7 +44,7 @@ public class ShoppingCartTest
 
         // We have a special offer of 10% discount for tootbrush on the catalog
         Teller teller = new Teller(catalog);
-        teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, toothbrush, 10.0);
+        teller.addSpecialOffer(new TenPercentDiscount(), toothbrush, 10.0);
 
         //then we check articles onthe cart 
         Receipt receipt = teller.checksOutArticlesFrom(cart);
@@ -67,7 +67,7 @@ public class ShoppingCartTest
             Teller teller = new Teller(catalog);
             Product beans_box = new Product("beans box", ProductUnit.Each);
             catalog.addProduct(beans_box, 2.99);
-            teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, beans_box, 0);
+            teller.addSpecialOffer( new ThreeForTwo(), beans_box, 0);
 
             /* We buy 2 bean box */
             ShoppingCart cart = new ShoppingCart();
@@ -106,7 +106,7 @@ public class ShoppingCartTest
            Teller teller = new Teller(catalog);
            Product beef = new Product("beef ", ProductUnit.Each);
            catalog.addProduct(beef, 8.99);
-           teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, beef, 10);
+           teller.addSpecialOffer(new TenPercentDiscount(), beef, 10);
 
            /* We buy 1 beef coast */
            ShoppingCart cart = new ShoppingCart();
@@ -131,7 +131,7 @@ public class ShoppingCartTest
         Teller teller = new Teller(catalog);
         Product pack_of_water = new Product("pack of water ", ProductUnit.Each);
         catalog.addProduct(pack_of_water, 2.5);
-        teller.addSpecialOffer(SpecialOfferType.TwoForAmount, pack_of_water, 4);
+        teller.addSpecialOffer(new TwoForAmount(), pack_of_water, 4);
 
         /* We buy 1 pack of water */
         ShoppingCart cart = new ShoppingCart();
@@ -170,7 +170,7 @@ public class ShoppingCartTest
         // on Orange_Juice product only if we buy at least 5 article 
         // buy  on the catalog
         Teller teller = new Teller(catalog);
-        teller.addSpecialOffer(SpecialOfferType.FiveForAmount, Orange_Juice, 7.5);
+        teller.addSpecialOffer(new FiveForAmount(), Orange_Juice, 7.5);
 
 
         // We buy 3 bottle of OrangeJuice 
