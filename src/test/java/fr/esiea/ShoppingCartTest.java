@@ -3,6 +3,7 @@ package fr.esiea;
 import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import java.util.Map;
+import fr.esiea.discountsTypes.*;
 
 public class ShoppingCartTest 
 {
@@ -44,7 +45,7 @@ public class ShoppingCartTest
 
         // We have a special offer of 10% discount for tootbrush on the catalog
         Teller teller = new Teller(catalog);
-        teller.addSpecialOffer(new TenPercentDiscount(), toothbrush, 10.0);
+        teller.addSpecialOffer(new PercentDiscount(10.0), toothbrush);
 
         //then we check articles onthe cart 
         Receipt receipt = teller.checksOutArticlesFrom(cart);
@@ -67,7 +68,7 @@ public class ShoppingCartTest
             Teller teller = new Teller(catalog);
             Product beans_box = new Product("beans box", ProductUnit.Each);
             catalog.addProduct(beans_box, 2.99);
-            teller.addSpecialOffer( new ThreeForTwo(), beans_box, 0);
+            teller.addSpecialOffer( new ThreeForTwo(), beans_box);
 
             /* We buy 2 bean box */
             ShoppingCart cart = new ShoppingCart();
@@ -99,14 +100,14 @@ public class ShoppingCartTest
 
 //------------ 10 % discount ---------------//
         @Test
-        public void TenPercentDiscount_Test()
+        public void PercentDiscount_Test()
         {
-           //We create a product "beef" with a special offer of the type "TenPercentDiscount"
+           //We create a product "beef" with a special offer of the type "PercentDiscount"
            SupermarketCatalog catalog = new FakeCatalog();
            Teller teller = new Teller(catalog);
            Product beef = new Product("beef ", ProductUnit.Each);
            catalog.addProduct(beef, 8.99);
-           teller.addSpecialOffer(new TenPercentDiscount(), beef, 10);
+           teller.addSpecialOffer(new PercentDiscount(10.0), beef); // 10% discount
 
            /* We buy 1 beef coast */
            ShoppingCart cart = new ShoppingCart();
@@ -131,7 +132,7 @@ public class ShoppingCartTest
         Teller teller = new Teller(catalog);
         Product pack_of_water = new Product("pack of water ", ProductUnit.Each);
         catalog.addProduct(pack_of_water, 2.5);
-        teller.addSpecialOffer(new TwoForAmount(), pack_of_water, 4);
+        teller.addSpecialOffer(new TwoForAmount(4.0), pack_of_water);
 
         /* We buy 1 pack of water */
         ShoppingCart cart = new ShoppingCart();
@@ -170,7 +171,7 @@ public class ShoppingCartTest
         // on Orange_Juice product only if we buy at least 5 article 
         // buy  on the catalog
         Teller teller = new Teller(catalog);
-        teller.addSpecialOffer(new FiveForAmount(), Orange_Juice, 7.5);
+        teller.addSpecialOffer(new FiveForAmount(7.5), Orange_Juice);
 
 
         // We buy 3 bottle of OrangeJuice 

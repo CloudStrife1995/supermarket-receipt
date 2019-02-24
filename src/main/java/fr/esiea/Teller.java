@@ -1,4 +1,5 @@
 package fr.esiea;
+import fr.esiea.discountsTypes.SpecialOffer;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,8 +14,8 @@ public class Teller {
         this.catalog = catalog;
     }
 
-    public void addSpecialOffer(SpecialOffer offerType, Product product, double argument) {
-        this.offers.put(product, new Offer(offerType, product, argument));
+    public void addSpecialOffer(SpecialOffer offerType, Product product) {
+        this.offers.put(product, new Offer(offerType, product));
     }
 
     public Receipt checksOutArticlesFrom(ShoppingCart theCart) {

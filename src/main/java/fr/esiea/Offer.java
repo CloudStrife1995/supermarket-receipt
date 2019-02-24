@@ -1,13 +1,12 @@
 package fr.esiea;
+import fr.esiea.discountsTypes.SpecialOffer;
 
 public class Offer {
     private SpecialOffer offerType;
     private final Product product;
-    private double argument;
 
-    public Offer(SpecialOffer offerType, Product product, double argument) {
+    public Offer(SpecialOffer offerType, Product product) {
         this.offerType = offerType;
-        this.argument = argument;
         this.product = product;
     }
 
@@ -18,9 +17,4 @@ public class Offer {
     public SpecialOffer getSpecialOffer(){
         return this.offerType;
     }
-
-    public double getArgument(){
-        return this.argument;
-    }
-
 }

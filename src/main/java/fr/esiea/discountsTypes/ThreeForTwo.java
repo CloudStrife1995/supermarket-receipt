@@ -1,8 +1,10 @@
-package fr.esiea;
+package fr.esiea.discountsTypes;
+import fr.esiea.Product;
+import fr.esiea.Discount;
 
 public class ThreeForTwo extends SpecialOffer {
 
-	public Discount getDiscount(Double unitPrice, Double quantityBought, Product product, Double argument)
+	public Discount getDiscount(Double unitPrice, Double quantityBought, Product product)
 	{
 		int quantityAsInt = quantityBought.intValue();
 		Discount discount = null;

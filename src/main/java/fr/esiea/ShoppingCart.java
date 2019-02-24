@@ -38,7 +38,7 @@ public class ShoppingCart {
             if (offers.containsKey(p)) {
                 Offer offer = offers.get(p);
                 Discount discount = null;
-				discount=offer.getSpecialOffer().getDiscount(catalog.getUnitPrice(p), productQuantities.get(p), p, offer.getArgument());
+				discount=offer.getSpecialOffer().getDiscount(catalog.getUnitPrice(p), productQuantities.get(p), p);
                 if (discount != null)
                     receipt.addDiscount(discount);
             }
