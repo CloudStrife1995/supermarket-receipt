@@ -4,7 +4,7 @@ package fr;
 import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import fr.esiea.*;
-import fr.esiea.discountsTypes.*;
+import fr.esiea.offerTypes.*;
 
 public class ReceiptPrinterTest 
 {

@@ -1,5 +1,5 @@
 package fr.esiea;
-import fr.esiea.discountsTypes.SpecialOffer;
+import fr.esiea.offerTypes.SpecialOffer;
 
 import java.util.HashMap;
 import java.util.List;

@@ -1,5 +1,5 @@
 package fr.esiea;
-import fr.esiea.discountsTypes.*;
+import fr.esiea.offerTypes.*;
 
 import static org.assertj.core.api.Assertions.*;
 

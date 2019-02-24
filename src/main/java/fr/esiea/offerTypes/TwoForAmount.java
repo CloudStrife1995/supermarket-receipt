@@ -1,4 +1,4 @@
-package fr.esiea.discountsTypes;
+package fr.esiea.offerTypes;
 import fr.esiea.Product;
 import fr.esiea.Discount;
 
