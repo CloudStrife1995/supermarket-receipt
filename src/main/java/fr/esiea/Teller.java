@@ -8,6 +8,7 @@ import java.util.Map;
 public class Teller {
 
     private final SupermarketCatalog catalog;
+    private final OffersHandler offersHandler = new OffersHandler();
     private Map<Product, Offer> offers = new HashMap<>();
 
     public Teller(SupermarketCatalog catalog) {
@@ -28,7 +29,7 @@ public class Teller {
             double price = quantity * unitPrice;
             receipt.addProduct(p, quantity, unitPrice, price);
         }
-        theCart.handleOffers(receipt, this.offers, this.catalog);
+        offersHandler.handleOffers(receipt, this.offers, this.catalog, theCart.getProductsInCart());
 
         return receipt;
     }

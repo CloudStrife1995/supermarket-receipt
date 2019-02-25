@@ -32,17 +32,4 @@ public class ShoppingCart {
             productsInCart.put(product, quantity);
         }
     }
-
-    void handleOffers(Receipt receipt, Map<Product, Offer> offers, SupermarketCatalog catalog) {
-        for (Product p: getProductsInCart().keySet()) {
-            if (offers.containsKey(p)) {
-                Offer offer = offers.get(p);
-                Discount discount = null;
-				discount=offer.getSpecialOffer().getDiscount(catalog.getUnitPrice(p), productsInCart.get(p), p);
-                if (discount != null)
-                    receipt.addDiscount(discount);
-            }
-
-        }
-    }
 }
