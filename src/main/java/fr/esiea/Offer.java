@@ -1,18 +1,20 @@
 package fr.esiea;
+import fr.esiea.offerTypes.SpecialOffer;
 
 public class Offer {
-    SpecialOfferType offerType;
+    private SpecialOffer offerType;
     private final Product product;
-    double argument;
 
-    public Offer(SpecialOfferType offerType, Product product, double argument) {
+    public Offer(SpecialOffer offerType, Product product) {
         this.offerType = offerType;
-        this.argument = argument;
         this.product = product;
     }
 
-    Product getProduct() {
+    public Product getProduct() {
         return this.product;
     }
 
+    public SpecialOffer getSpecialOffer(){
+        return this.offerType;
+    }
 }

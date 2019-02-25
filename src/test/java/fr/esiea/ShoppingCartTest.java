@@ -3,6 +3,7 @@ package fr.esiea;
 import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import java.util.Map;
+import fr.esiea.offerTypes.*;
 
 public class ShoppingCartTest 
 {
@@ -34,7 +35,7 @@ public class ShoppingCartTest
          ShoppingCart cart = new ShoppingCart();
         cart.addItem(candy_bag);
 
-        Map<Product, Double> productQuantities = cart.productQuantities();
+        Map<Product, Double> productQuantities = cart.getProductsInCart();
         double productQuantity = productQuantities.get(candy_bag);
 
         double supposed_product_quantity =1.0;
@@ -55,12 +56,12 @@ public class ShoppingCartTest
 
         /* We buy 2.5k of apple */
         ShoppingCart cart = new ShoppingCart();
-        cart.addItemQuantity(apples, 2.5);
+        cart.addItem(apples, 2.5);
         
 
         // We have a special offer of 10% discount for tootbrush on the catalog
         Teller teller = new Teller(catalog);
-        teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, toothbrush, 10.0);
+        teller.addSpecialOffer(new PercentDiscount(10.0), toothbrush);
 
         //then we check articles onthe cart 
         Receipt receipt = teller.checksOutArticlesFrom(cart);
@@ -83,11 +84,11 @@ public class ShoppingCartTest
             Teller teller = new Teller(catalog);
             Product beans_box = new Product("beans box", ProductUnit.Each);
             catalog.addProduct(beans_box, 2.99);
-            teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, beans_box, 0);
+            teller.addSpecialOffer( new ThreeForTwo(), beans_box);
 
             /* We buy 2 bean box */
             ShoppingCart cart = new ShoppingCart();
-            cart.addItemQuantity(beans_box, 2);           
+            cart.addItem(beans_box, 2);           
 
             // suposedCartPrice is 2*2.99€
             double SuposedCartPrice = 2 * 2.99;
@@ -115,18 +116,18 @@ public class ShoppingCartTest
 
 //------------ 10 % discount ---------------//
         @Test
-        public void TenPercentDiscount_Test()
+        public void PercentDiscount_Test()
         {
-           //We create a product "beef" with a special offer of the type "TenPercentDiscount"
+           //We create a product "beef" with a special offer of the type "PercentDiscount"
            SupermarketCatalog catalog = new FakeCatalog();
            Teller teller = new Teller(catalog);
            Product beef = new Product("beef ", ProductUnit.Each);
            catalog.addProduct(beef, 8.99);
-           teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, beef, 10);
+           teller.addSpecialOffer(new PercentDiscount(10.0), beef); // 10% discount
 
            /* We buy 1 beef coast */
            ShoppingCart cart = new ShoppingCart();
-           cart.addItemQuantity(beef, 1);
+           cart.addItem(beef, 1);
 
            // suposedCartPrice is 8.99 - (8.99*0.1) 
            double SuposedCartPrice = 8.99 - (8.99*0.1);
@@ -147,11 +148,11 @@ public class ShoppingCartTest
         Teller teller = new Teller(catalog);
         Product pack_of_water = new Product("pack of water ", ProductUnit.Each);
         catalog.addProduct(pack_of_water, 2.5);
-        teller.addSpecialOffer(SpecialOfferType.TwoForAmount, pack_of_water, 4);
+        teller.addSpecialOffer(new TwoForAmount(4.0), pack_of_water);
 
         /* We buy 1 pack of water */
         ShoppingCart cart = new ShoppingCart();
-        cart.addItemQuantity(pack_of_water, 1);
+        cart.addItem(pack_of_water, 1);
 
         // suposedCartPrice is 2.5€ 
         double SuposedCartPrice = (2.5);
@@ -161,7 +162,7 @@ public class ShoppingCartTest
         assertThat(RealCartPrice).isEqualTo(SuposedCartPrice).as("one articles bought without a reduced price"); 
 
         /* We buy a second pack of water */
-        cart.addItemQuantity(pack_of_water, 1);
+        cart.addItem(pack_of_water, 1);
 
         // suposedCartPrice result  4€ 
         SuposedCartPrice = (4);
@@ -186,12 +187,12 @@ public class ShoppingCartTest
         // on Orange_Juice product only if we buy at least 5 article 
         // buy  on the catalog
         Teller teller = new Teller(catalog);
-        teller.addSpecialOffer(SpecialOfferType.FiveForAmount, Orange_Juice, 7.5);
+        teller.addSpecialOffer(new FiveForAmount(7.5), Orange_Juice);
 
 
         // We buy 3 bottle of OrangeJuice 
         ShoppingCart cart = new ShoppingCart();
-        cart.addItemQuantity(Orange_Juice, 3);
+        cart.addItem(Orange_Juice, 3);
 
         // supposedCartPrice result 6€
         double SuposedCartPrice =  2*3;
@@ -201,7 +202,7 @@ public class ShoppingCartTest
         assertThat(RealCartPrice).isEqualTo(SuposedCartPrice).as("Three articles bought at normal price"); 
 
         // We buy 2 more bottle of OrangeJuice 
-        cart.addItemQuantity(Orange_Juice, 2);
+        cart.addItem(Orange_Juice, 2);
 
         // supposedCartPrice result 7.50€
         SuposedCartPrice =  2*5 - ((2*5)*0.25) ;

@@ -4,6 +4,7 @@ package fr;
 import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import fr.esiea.*;
+import fr.esiea.offerTypes.*;
 
 public class ReceiptPrinterTest 
 {
@@ -19,13 +20,13 @@ public class ReceiptPrinterTest
         // We create a prodcut " bioWatch " with a special offer of the type "ThreeForTwo".
         Product bioWatch = new Product("bioWatch", ProductUnit.Each);
         catalog.addProduct(bioWatch, 5.0);
-        teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, bioWatch,0);
+        teller.addSpecialOffer(new ThreeForTwo(), bioWatch);
     
 
          // We create a prodcut " artefact " with a special offer of the type "TwoForAmount".
         Product artefact = new Product("artefact", ProductUnit.Each);
         catalog.addProduct(artefact, 10);
-        teller.addSpecialOffer(SpecialOfferType.TwoForAmount, artefact,5.00*2);
+        teller.addSpecialOffer(new TwoForAmount(5.00*2), artefact);
 
         // We create a prodcut "celeriac" without  special offer. 
         Product celeriac = new Product("celeriac", ProductUnit.Kilo);
@@ -33,9 +34,9 @@ public class ReceiptPrinterTest
 
        // We put the created product in a cart
         ShoppingCart cart = new ShoppingCart();  
-        cart.addItemQuantity(artefact, 2);      
-        cart.addItemQuantity(bioWatch, 3);
-        cart.addItemQuantity(celeriac, 1); 
+        cart.addItem(artefact, 2);      
+        cart.addItem(bioWatch, 3);
+        cart.addItem(celeriac, 1); 
         
          // we get the printed receipt of the cart
       Receipt receipt_announced = teller.checksOutArticlesFrom(cart);
