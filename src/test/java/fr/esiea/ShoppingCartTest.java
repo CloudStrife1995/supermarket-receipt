@@ -14,9 +14,9 @@ public class ShoppingCartTest
         Product candy_bag= new Product("candy bag", ProductUnit.Each);
          //we create our cart to add item further;
          ShoppingCart cart = new ShoppingCart();
-        cart.addItemQuantity(candy_bag,100);
+        cart.addItem(candy_bag,100);
 
-        Map<Product, Double> items_quantities = cart.productQuantities();
+        Map<Product, Double> items_quantities = cart.getProductsInCart();
         double final_product_quantity = items_quantities.get(candy_bag);
 
         //we caompare to the quantity in the cart 
@@ -35,8 +35,8 @@ public class ShoppingCartTest
          ShoppingCart cart = new ShoppingCart();
         cart.addItem(candy_bag);
 
-        Map<Product, Double> productQuantities = cart.getProductsInCart();
-        double productQuantity = productQuantities.get(candy_bag);
+        Map<Product, Double> productsInCart = cart.getProductsInCart();
+        double productQuantity = productsInCart.get(candy_bag);
 
         double supposed_product_quantity =1.0;
         assertThat(supposed_product_quantity).isEqualTo(productQuantity);    
