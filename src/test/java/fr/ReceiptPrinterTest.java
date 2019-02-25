@@ -34,9 +34,9 @@ public class ReceiptPrinterTest
 
        // We put the created product in a cart
         ShoppingCart cart = new ShoppingCart();  
-        cart.addItemQuantity(artefact, 2);      
-        cart.addItemQuantity(bioWatch, 3);
-        cart.addItemQuantity(celeriac, 1); 
+        cart.addItem(artefact, 2);      
+        cart.addItem(bioWatch, 3);
+        cart.addItem(celeriac, 1); 
         
          // we get the printed receipt of the cart
       Receipt receipt_announced = teller.checksOutArticlesFrom(cart);
