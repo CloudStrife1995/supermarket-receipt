@@ -29,9 +29,9 @@ public class Teller {
             double price = quantity * unitPrice;
             receipt.addProduct(p, quantity, unitPrice, price);
         }
-        offersHandler.handleOffers(receipt, this.offers, this.catalog, theCart.getProductsInCart());
-
+        offersHandler.getAppliableDiscountsFromOffers(receipt, this.offers, this.catalog, theCart.getProductsInCart());
         return receipt;
     }
 
 }
+
