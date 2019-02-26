@@ -23,7 +23,14 @@ public class ShoppingCartTest
         double productQuantity = productQuantities.get(candy_bag);
 
         double supposed_product_quantity =1.0;
-        assertThat(supposed_product_quantity).isEqualTo(productQuantity);    
+        assertThat(supposed_product_quantity).isEqualTo(productQuantity); 
+
+        cart.addItem(candy_bag,2);
+        productQuantity = productQuantities.get(candy_bag);
+
+        supposed_product_quantity =3.0;
+        assertThat(supposed_product_quantity).isEqualTo(productQuantity); 
+
     }
 
 }
