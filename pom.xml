@@ -58,14 +58,12 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
       <version>1.5.10.RELEASE</version>
-      <scope>test</scope>  
     </dependency>
     <!--dependance pour le web service -->
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>ajackson-databind</artifactId>
+      <artifactId>jackson-databind</artifactId>
       <version>2.9.4</version>
-      <scope>test</scope>  
     </dependency>
 
   </dependencies>
