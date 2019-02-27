@@ -14,7 +14,7 @@
 *manoranjithAn Ashanth
 *Soliveres Quentin
 
-##Travail effectué:
+## Travail effectué:
 -[x] TP1: Démarrage du projet
 -[x] TP2: Test du code original de supermarket-receipt
 -[ ] TP3: Refactoring & Bundles Offers & Test 
